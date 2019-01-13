@@ -12,6 +12,6 @@ sudo apt-get install slepc-dev
 
 
 
-project is implementing an open sourse library SPARSELISARD 
+This project implements an open sourse library SPARSELISARD 
 
 http://www.sparselizard.org/ 
