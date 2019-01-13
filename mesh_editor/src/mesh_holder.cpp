@@ -1,9 +1,26 @@
 #include "mesh_holder.h"
+
 #include <qmath.h>
+#include <mesh/mesh.h>
 
 MeshHolder::MeshHolder()
     : m_count(0)
 {
+
+
+    loadModel("../../models/permanent_magnet.geo");
+}
+
+
+void MeshHolder::loadModel(char * path){
+
+    mesh mymesh(path);
+
+    auto nodes = mymesh.getnodes();
+    auto elements = mymesh.getelements();
+
+    nodes->
+
     m_data.resize(2500 * 6);
 
     const GLfloat x1 = +0.06f;
@@ -50,13 +67,6 @@ MeshHolder::MeshHolder()
         extrude(x6, y6, x7, y7);
         extrude(x8, y8, x5, y5);
     }
-
-    loadModel("../../models/permanent_magnet.geo");
-}
-
-
-void MeshHolder::loadModel(char * path){
-
 
 }
 

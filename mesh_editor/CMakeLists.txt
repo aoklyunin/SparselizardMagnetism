@@ -26,6 +26,7 @@ set(JSONCPP_LIBRARIES jsoncpp)
 include_directories(
         include
         ../misc/include
+        ../sparselizard_lib/sparselizard/src
         ${EIGEN3_INCLUDE_DIRS}
         /usr/include/jsoncpp
         ${OPENGL_INCLUDE_DIRS}

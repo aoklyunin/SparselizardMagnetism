@@ -21,7 +21,6 @@ add_compile_options(
 
 add_subdirectory(misc)
 
-add_subdirectory(gmsh_parser)
 
 #add_subdirectory(gmsh_demos/api)
 
