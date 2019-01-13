@@ -19,7 +19,11 @@ add_compile_options(
         #-Wall
         )
 
+add_subdirectory(misc)
+add_subdirectory(mesh_editor)
+
 add_subdirectory(sparselizard_lib)
 add_subdirectory(tests)
+
 #add_subdirectory(examples)
 
