@@ -1,7 +1,7 @@
-#include "logo.h"
+#include "mesh_holder.h"
 #include <qmath.h>
 
-Logo::Logo()
+MeshHolder::MeshHolder()
     : m_count(0)
 {
     m_data.resize(2500 * 6);
@@ -50,9 +50,17 @@ Logo::Logo()
         extrude(x6, y6, x7, y7);
         extrude(x8, y8, x5, y5);
     }
+
+    loadModel("../../models/permanent_magnet.geo");
 }
 
-void Logo::add(const QVector3D &v, const QVector3D &n)
+
+void MeshHolder::loadModel(char * path){
+
+
+}
+
+void MeshHolder::add(const QVector3D &v, const QVector3D &n)
 {
     GLfloat *p = m_data.data() + m_count;
     *p++ = v.x();
@@ -64,7 +72,7 @@ void Logo::add(const QVector3D &v, const QVector3D &n)
     m_count += 6;
 }
 
-void Logo::quad(GLfloat x1, GLfloat y1, GLfloat x2, GLfloat y2, GLfloat x3, GLfloat y3, GLfloat x4, GLfloat y4)
+void MeshHolder::quad(GLfloat x1, GLfloat y1, GLfloat x2, GLfloat y2, GLfloat x3, GLfloat y3, GLfloat x4, GLfloat y4)
 {
     QVector3D n = QVector3D::normal(QVector3D(x4 - x1, y4 - y1, 0.0f), QVector3D(x2 - x1, y2 - y1, 0.0f));
 
@@ -87,7 +95,7 @@ void Logo::quad(GLfloat x1, GLfloat y1, GLfloat x2, GLfloat y2, GLfloat x3, GLfl
     add(QVector3D(x4, y4, 0.05f), n);
 }
 
-void Logo::extrude(GLfloat x1, GLfloat y1, GLfloat x2, GLfloat y2)
+void MeshHolder::extrude(GLfloat x1, GLfloat y1, GLfloat x2, GLfloat y2)
 {
     QVector3D n = QVector3D::normal(QVector3D(0.0f, 0.0f, -0.1f), QVector3D(x2 - x1, y2 - y1, 0.0f));
 

@@ -45,8 +45,8 @@ add_executable(mesh_editor
         include/glwidget.h
         src/mainwindow.cpp
         include/mainwindow.h
-        src/logo.cpp
-        include/logo.h
+        src/mesh_holder.cpp
+        include/mesh_holder.h
         src/window.cpp
         include/window.h
         )

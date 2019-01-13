@@ -56,7 +56,7 @@
 #include <QOpenGLVertexArrayObject>
 #include <QOpenGLBuffer>
 #include <QMatrix4x4>
-#include "logo.h"
+#include "mesh_holder.h"
 
 QT_FORWARD_DECLARE_CLASS(QOpenGLShaderProgram)
 
@@ -100,7 +100,7 @@ private:
     int m_yRot;
     int m_zRot;
     QPoint m_lastPos;
-    Logo m_logo;
+    MeshHolder m_logo;
     QOpenGLVertexArrayObject m_vao;
     QOpenGLBuffer m_logoVbo;
     QOpenGLShaderProgram *m_program;

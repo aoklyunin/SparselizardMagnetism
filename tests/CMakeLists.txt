@@ -5,7 +5,6 @@ PROJECT(Tests CXX)
 find_package(MPI REQUIRED)
 find_package(BLAS REQUIRED)
 
-find_package(MPI)
 
 add_library(petsclib SHARED IMPORTED)
 set_property(TARGET petsclib PROPERTY IMPORTED_LOCATION "/usr/lib/petsc/lib/libpetsc_real.so")
@@ -31,6 +30,8 @@ include_directories(
         ../sparselizard_lib/sparselizard/src/shapefunction/hierarchical/hcurl
         ../sparselizard_lib/sparselizard/src/shapefunction/hierarchical/meca
         ../sparselizard_lib/sparselizard/src/shapefunction/lagrange
+
+        ../gmsh_api
 )
 
 link_directories(sparselizard)
@@ -83,3 +84,12 @@ target_link_libraries(waveguide3D
         -lslepc
         )
 
+
+#
+#add_executable(open_gmsh open_gmsh.cpp)
+#
+#target_link_libraries(open_gmsh
+#        gmesh_api
+#        )
+#
+#
