@@ -1,0 +1,3 @@
+[submodule "sparselizard_lib/sparselizard"]
+	path = sparselizard_lib/sparselizard
+	url = https://gitlab.onelab.info/halbux/sparselizard.git
