@@ -61,3 +61,25 @@ target_link_libraries(vector_potential
         )
 
 
+add_executable(inductionheating inductionheating.cpp)
+
+target_link_libraries(inductionheating
+        ${MPI_C_LIBRARIES}
+        Sparselizard
+        petsclib
+        mpi
+        -lblas
+        -lslepc
+        )
+
+add_executable(waveguide3D waveguide3D.cpp)
+
+target_link_libraries(waveguide3D
+        ${MPI_C_LIBRARIES}
+        Sparselizard
+        petsclib
+        mpi
+        -lblas
+        -lslepc
+        )
+
