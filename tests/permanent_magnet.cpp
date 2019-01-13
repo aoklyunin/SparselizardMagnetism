@@ -16,7 +16,7 @@ void sparselizard(void)
 	int magnet1 = 1, magnet2 = 2, magnet3 = 3, magnet4 = 4, magnet5 = 5, steel = 6, air = 7, zeropotential = 8;
 
 	// The mesh can be curved!
-	mesh mymesh("permanent_magnet.msh");
+	mesh mymesh("../../models/permanent_magnet.msh");
 
 	// Define new physical regions for convenience:
 	int magnets = regionunion({magnet1, magnet2, magnet3, magnet4, magnet5});
@@ -89,9 +89,9 @@ void sparselizard(void)
 	phi.setdata(wholedomain, sol);
 
 	// Write the magnetic scalar potential and the magnetic field with an order 2 interpolation.
-	phi.write(wholedomain, "phi.pos", 2);
+	phi.write(wholedomain, "../../results/permanent_magnet/phi.pos", 2);
 	norm(-grad(phi)).write(wholedomain, "hnorm.pos", 2);
-	(-grad(phi)).write(wholedomain, "h.pos");
+	(-grad(phi)).write(wholedomain, "../../results/permanent_magnet/h.pos");
 		
 	// Evaluate the magnetic field 1cm above the center of the magnet array:
 	std::vector<double> magfieldnorm = norm(-grad(phi)).interpolate(wholedomain, {0,0.02,0});
@@ -99,7 +99,7 @@ void sparselizard(void)
 
 	// Write 20 magnetic field lines starting on the top side of the magnet array:
 	shape ln("line", -1, {-0.025,0.01,0, 0.025,0.01,0}, 20);
-	(-grad(phi)).streamline(regionexclusion(wholedomain, magnets), "magneticfieldline.pos", ln.getcoords(), 0.01/5);
+	(-grad(phi)).streamline(regionexclusion(wholedomain, magnets), "../../results/permanent_magnet/magneticfieldline.pos", ln.getcoords(), 0.01/5);
 
 	// Code validation line. Can be removed.
 	std::cout << (magfieldnorm[0] < 64963.8 && magfieldnorm[0] > 64963.6);

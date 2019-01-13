@@ -322,9 +322,9 @@ target_link_libraries(magnetostatics-vector-potential-3d
         )
 
 
-add_executable(magnetostatics-vector-potential-3d sparselizard/examples/magnetostatics-vector-potential-3d/main.cpp)
+add_executable(magnetostatics-scalar-potential-2d sparselizard/examples/magnetostatics-scalar-potential-2d/main.cpp)
 
-target_link_libraries(magnetostatics-vector-potential-3d
+target_link_libraries(magnetostatics-scalar-potential-2d
         ${MPI_C_LIBRARIES}
         Sparselizard
         petsclib

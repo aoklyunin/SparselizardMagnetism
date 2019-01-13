@@ -11,6 +11,8 @@ add_library(petsclib SHARED IMPORTED)
 set_property(TARGET petsclib PROPERTY IMPORTED_LOCATION "/usr/lib/petsc/lib/libpetsc_real.so")
 
 include_directories(
+        ${MPI_INCLUDE_PATH}
+
         /usr/lib/slepc/include
         /usr/lib/petsc/include
         ../sparselizard_lib/sparselizard/src
@@ -36,12 +38,20 @@ link_directories(sparselizard)
 
 LINK_LIBRARIES (${CMAKE_REQUIRED_LIBRARIES})
 
-add_executable(creator_test creator_test.cpp)
+add_executable(permanent_magnet permanent_magnet.cpp)
 
-SET(CMAKE_C_COMPILER mpicc)
-SET(CMAKE_CXX_COMPILER mpicxx)
+target_link_libraries(permanent_magnet
+        ${MPI_C_LIBRARIES}
+        Sparselizard
+        petsclib
+        mpi
+        -lblas
+        -lslepc
+        )
 
-target_link_libraries(creator_test
+add_executable(vector_potential vector_potential.cpp)
+
+target_link_libraries(vector_potential
         ${MPI_C_LIBRARIES}
         Sparselizard
         petsclib
