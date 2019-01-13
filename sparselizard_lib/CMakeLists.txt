@@ -321,6 +321,19 @@ target_link_libraries(magnetostatics-vector-potential-3d
         -lslepc
         )
 
+
+add_executable(magnetostatics-vector-potential-3d sparselizard/examples/magnetostatics-vector-potential-3d/main.cpp)
+
+target_link_libraries(magnetostatics-vector-potential-3d
+        ${MPI_C_LIBRARIES}
+        Sparselizard
+        petsclib
+        mpi
+        -lblas
+        -lslepc
+        )
+
+
 add_executable(mesher-extruded-mechanical-structure-3d sparselizard/examples/mesher-extruded-mechanical-structure-3d/main.cpp)
 
 target_link_libraries(mesher-extruded-mechanical-structure-3d
