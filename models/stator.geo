@@ -329,6 +329,7 @@ IN_2 = 12;
 OUT_1 = 13;
 OUT_2 = 14;
 INF = 15;
+ZERO_POTENTIAL = 16;
 
 Physical Volume(COIL_1) = {vol_coil_1[]};
 Physical Volume(COIL_2) = {vol_coil_2[]};

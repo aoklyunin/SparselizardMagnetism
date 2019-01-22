@@ -176,7 +176,7 @@ Physical Volume(TUBE) = {vol_tube[]};
 Physical Volume(AIR) = {v};
 Physical Surface(SKIN_COIL) = {skin_coil[]};
 Physical Surface(SKIN_TUBE) = CombinedBoundary{ Volume{vol_tube[]}; };
-Physical Surface(IN) = in;
+Physical Surface(IN) = in;domainboundary
 Physical Surface(OUT) = out;
 Physical Surface(INF) = {s:s+5};
 

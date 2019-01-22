@@ -83,6 +83,18 @@ target_link_libraries(waveguide3D
         -lslepc
         )
 
+add_executable(stator stator.cpp)
+
+target_link_libraries(stator
+        ${MPI_C_LIBRARIES}
+        Sparselizard
+        petsclib
+        mpi
+        -lblas
+        -lslepc
+        )
+
+
 
 #
 #add_executable(open_gmsh open_gmsh.cpp)
