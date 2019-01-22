@@ -19,14 +19,39 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 find_package(Qt5Widgets CONFIG REQUIRED)
 
+add_library(petsclib SHARED IMPORTED)
+set_property(TARGET petsclib PROPERTY IMPORTED_LOCATION "/usr/lib/petsc/lib/libpetsc_real.so")
 
 set(JSONCPP_LIBRARIES jsoncpp)
 
+find_package(MPI REQUIRED)
+find_package(BLAS REQUIRED)
 
 include_directories(
         include
+
+        /usr/lib/petsc/include
+        ${MPI_INCLUDE_PATH}
+        /usr/lib/slepc/include
+
         ../misc/include
         ../sparselizard_lib/sparselizard/src
+        ../sparselizard_lib/sparselizard/src/expression
+        ../sparselizard_lib/sparselizard/src/expression/operation
+        ../sparselizard_lib/sparselizard/src/field
+        ../sparselizard_lib/sparselizard/src/formulation
+        ../sparselizard_lib/sparselizard/src/gausspoint
+        ../sparselizard_lib/sparselizard/src/geometry
+        ../sparselizard_lib/sparselizard/src/mesh
+        ../sparselizard_lib/sparselizard/src/mesh/gmsh
+        ../sparselizard_lib/sparselizard/src/resolution
+        ../sparselizard_lib/sparselizard/src/shapefunction
+        ../sparselizard_lib/sparselizard/src/shapefunction/hierarchical
+        ../sparselizard_lib/sparselizard/src/shapefunction/hierarchical/h1
+        ../sparselizard_lib/sparselizard/src/shapefunction/hierarchical/hcurl
+        ../sparselizard_lib/sparselizard/src/shapefunction/hierarchical/meca
+        ../sparselizard_lib/sparselizard/src/shapefunction/lagrange
+
         ${EIGEN3_INCLUDE_DIRS}
         /usr/include/jsoncpp
         ${OPENGL_INCLUDE_DIRS}
@@ -38,6 +63,8 @@ link_directories(
         misc
         pthread
         solid3
+
+
 )
 
 add_executable(mesh_editor
@@ -56,6 +83,7 @@ add_executable(mesh_editor
 target_link_libraries(mesh_editor
         Qt5::Widgets
         pthread
+        Sparselizard
         misc
         ${CMAKE_THREAD_LIBS_INIT}
         ${JSONCPP_LIBRARIES}
@@ -64,5 +92,11 @@ target_link_libraries(mesh_editor
         -lboost_filesystem
         -lboost_system
         #-fsanitize=address
+        -lblas
+        -lslepc
+        ${MPI_C_LIBRARIES}
+        Sparselizard
+        petsclib
+        mpi
         )
 

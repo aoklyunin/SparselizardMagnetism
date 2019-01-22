@@ -31,7 +31,6 @@ include_directories(
         ../sparselizard_lib/sparselizard/src/shapefunction/hierarchical/meca
         ../sparselizard_lib/sparselizard/src/shapefunction/lagrange
 
-        ../gmsh_api
 )
 
 link_directories(sparselizard)

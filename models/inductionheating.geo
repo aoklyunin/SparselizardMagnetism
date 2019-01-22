@@ -153,6 +153,8 @@ Plane Surface(s+2) = {ll+4};
 Plane Surface(s+3) = {ll+5};
 Plane Surface(s+4) = {ll+6};
 Plane Surface(s+5) = {ll+7};
+
+
 sl = newsl;
 skin_coil[] = CombinedBoundary{ Volume{vol_coil[]}; };
 skin_coil[] -= {in, out};

@@ -9,6 +9,7 @@
 
 int main(int argc, char *argv[])
 {
+
     QApplication app(argc, argv);
 
     QCoreApplication::setApplicationName("Qt Hello GL 2 Example");

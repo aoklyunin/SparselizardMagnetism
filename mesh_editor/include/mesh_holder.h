@@ -55,20 +55,40 @@
 #include <QVector>
 #include <QVector3D>
 
-class MeshHolder
-{
+class MeshHolder {
 public:
     MeshHolder();
+
     const GLfloat *constData() const { return m_data.constData(); }
+
     int count() const { return m_count; }
+
     int vertexCount() const { return m_count / 6; }
 
 private:
     void quad(GLfloat x1, GLfloat y1, GLfloat x2, GLfloat y2, GLfloat x3, GLfloat y3, GLfloat x4, GLfloat y4);
+
     void extrude(GLfloat x1, GLfloat y1, GLfloat x2, GLfloat y2);
+
     void add(const QVector3D &v, const QVector3D &n);
 
-    void loadModel(char * path);
+    void loadModel(char *path);
+
+    void addPoint(std::vector<double> xchords, std::vector<double> ychords, std::vector<double> zchords);
+
+    void addLine(std::vector<double> xchords, std::vector<double> ychords, std::vector<double> zchords);
+
+    void addTriangle(std::vector<double> xchords, std::vector<double> ychords, std::vector<double> zchords);
+
+    void addQuadrangle(std::vector<double> xchords, std::vector<double> ychords, std::vector<double> zchords);
+
+    void addTetrahedra(std::vector<double> xchords, std::vector<double> ychords, std::vector<double> zchords);
+
+    void addHexahedra(std::vector<double> xchords, std::vector<double> ychords, std::vector<double> zchords);
+
+    void addPisms(std::vector<double> xchords, std::vector<double> ychords, std::vector<double> zchords);
+
+    void addPyramids(std::vector<double> xchords, std::vector<double> ychords, std::vector<double> zchords);
 
     QVector<GLfloat> m_data;
     int m_count;

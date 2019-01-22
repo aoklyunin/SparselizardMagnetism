@@ -21,6 +21,7 @@ add_compile_options(
 
 add_subdirectory(misc)
 
+add_subdirectory(sparselizard_lib)
 
 #add_subdirectory(gmsh_demos/api)
 
@@ -28,7 +29,7 @@ add_subdirectory(misc)
 add_subdirectory(mesh_editor)
 
 
-add_subdirectory(sparselizard_lib)
+
 add_subdirectory(tests)
 
 
